@@ -26,7 +26,7 @@ users to participate in a Lucky draw and win exciting prizes.
 
 **The figure demonstrate the structure of the service**
 
-![Alt text](Grofers.jpg?raw=true "Title")
+![Alt text](image.png?raw=true "Flowchart")
 
 ## Techstach
 
