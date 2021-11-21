@@ -11,6 +11,9 @@ AngularJS-powered HTML5 Markdown editor.
 - See HTML in the right
 - ✨Magic ✨
 
+![alt text](https://github.com/o7akshay/Lootery/blob/main/image.jpg?raw=true)
+
+
 ## Features
 
 - Import a HTML file and watch it magically convert to Markdown
