@@ -11,7 +11,8 @@ AngularJS-powered HTML5 Markdown editor.
 - See HTML in the right
 - ✨Magic ✨
 
-![alt text](https://github.com/o7akshay/Lootery/blob/main/Grofers (1).jpg?raw=true)
+![alt text](https://github.com/07akshay/Lootery/blob/main/image.jpg?raw=true)
+![Alt text](Lottery/main/image.jpg?raw=true "Title")
 
 
 ## Features
