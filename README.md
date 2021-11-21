@@ -1,18 +1,94 @@
 # Lucky Draw Gaming Service
-## _The Last Markdown Editor, Ever_
+This is an attempt to develop a Lucky Draw gaming Service that allows 
+users to participate in a Lucky draw and win exciting prizes.
+
+## Features
+
+- User can request for a lucky draw token to participate in an event
+- A user can participate with only one token in one event
+- User can request the list of previous winners
+- Also, the list of various contests and their rewards can be fetched.
+
+## Design
+
+> The project has been built using **User centric** and **Admin centric APIs**
+
+> User centric APIs include the following : 
+- API to get token for participating in a contest
+- API to fetch the list of past winners
+- API to fetch the contest information - rewards and timings
+
+> Admin centric APIs include the following
+- API to add new contests for the users to participate
+- API to reschedule a contest
+- API to cancel an ongoing contest
 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+**The figure demonstrate the structure of the service**
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+![Alt text](Grofers.jpg?raw=true "Title")
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+## Techstach
 
-![alt text](https://github.com/07akshay/Lootery/blob/main/image.jpg?raw=true)
-![Alt text](Lottery/main/image.jpg?raw=true "Title")
+The project has been built using the following :
+
+- [Python]() - an interpreted high-level general-purpose programming language
+- [SQLite3]() - A lightweight replica of MySQL database 
+- [Flask]() - To develop the web framework
+
+## API Documentation
+- ### To get a token to participate in a contest
+    This API returns a hexadecimal equivalent of a unique SHA256 code generated using
+    the userID, contest_name and current date.
+    This hexadecimal code is used as the token to participate in the Lucky Draw contest
+    #### Request
+    `POST /allottToken/`
+    #### Parameters
+    ```sh
+    userID
+    contest_Name
+    ```
+    #### Response
+    ```
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Content-Type: application/json
+    Body: {
+            token : f6071725e7ddeb434fb6b32b8ec4a2b14dd7db0d785347b2fb48f9975126178f
+          }
+    ```
+
+- ### To get the list of past contest winners
+    This API returns the list of past winners along with the corresponding contests and their dates
+    #### Request
+    `GET /pastWinners/`
+    #### Response
+    ```
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Content-Type: application/json
+    Body: {
+           contest_name1 : winner_user1,
+           contest_name2 : winner_user2,
+           ....
+          }
+    ```
+
+- ### To get the details of contests
+    This API returns the list of contests along with their rewards and schedules
+    #### Request
+    `GET /contestDetails/`
+    #### Response
+    ```
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Content-Type: application/json
+    Body: {
+           contest_name1 : [reward1, schedule1],
+           contest_name2 : [reward2, schedule2]
+           ....
+          }
+    ```
 
 
 ## Features
