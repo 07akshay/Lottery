@@ -31,7 +31,7 @@ of past contests.
 
 **The figure demonstrates the structure of the service**
 
-![Alt text](image.png?raw=true "Flowchart")
+![Alt text](flowchart.png?raw=true "Flowchart")
 
 ## Techstack
 
