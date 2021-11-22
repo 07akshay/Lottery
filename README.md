@@ -143,9 +143,13 @@ The project has been built using the following :
 
 ## Database Schema
 In this project I am currently using SQLite3 as the database due to ease of use 
-and demonstration but it can be very easily extended to MySQL. I have created 3 tables
+and demonstration but it can be very easily extended to MySQL. I have created 4 tables
 in the database, namely:
-- token_tb : stores the UserID, Token_number and Contest_Name
-- contest_tb : stores the Contest_name, Contest_reward and Contest_date
-- winners_tb : stores the Contest_name, Contest_winner and Contest_date
+- token_tb : stores the token_number, UserID and ContestID
+- contest_tb : stores the ContestID, Contest_reward, Contest_date, Contest_name and expired (whether the contest is active or not)
+- winners_tb : stores the ContestID, UserID and Rank
+- users_tb : stores the UserID and User_name
 
+**The figure demonstrates the database schema of the service**
+
+![Alt text](database.png?raw=true "database")
