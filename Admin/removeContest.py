@@ -9,12 +9,11 @@ app = Flask(__name__)
 def removeContest():
     if request.method == 'POST':
         details = request.form
-        name = details['contest_name']  # contest name
-        deadline = details['deadline']  # contest deadline
-        remContest(name,deadline)
+        contestID = details['contest_id']  # contest ID
+        remContest(contestID)
         return "success"
             
-    return render_template("addContest.html")
+    return render_template("removeContest.html")
 
 if __name__=='__main__':
     app.run(host='127.0.0.1',port = '5050')
