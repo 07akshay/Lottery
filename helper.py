@@ -1,10 +1,11 @@
 import sqlite3
+import random
+from datetime import date
 
-
-def checkUser(userID, contest_name):
+def checkUser(userID, contest_id):
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
-        qr = f"select * from token_tb where userID='{userID}' and contest='{contest_name}'"
+        qr = f"select * from token_tb where userID='{userID}' and contest_id='{contest_id}'"
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
@@ -21,6 +22,7 @@ def tokenAvailable(token):
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
+        print(rows)
         if len(rows)!=0:
             return False
         else:
@@ -30,15 +32,16 @@ def tokenAvailable(token):
 def insertToDB(token):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
-        qr = f"insert into token_tb values('{token.User}','{token.Number}','{token.Contest}')"
+        qr = f"insert into token_tb values('{token.Number}','{token.UserID}','{token.ContestID}')"
         cur.execute(qr)
         con.commit()
+    return
 
 
 def getContests():
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
-        qr = f"select * from contest_tb order by deadline DESC"
+        qr = f"select * from contest_tb where expired='NO' order by deadline DESC"
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
@@ -51,11 +54,74 @@ def getContests():
 def getWin():
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
-        qr = "select * from winners_tb order by deadline DESC"
+        qr = "select * from winners_tb"
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
         winners = []
         for row in rows:
             winners.append(row)
+    return winners
+
+
+def addCon(contest):
+    with sqlite3.connect("test.db") as con:
+        cur = con.cursor()
+        qr = f"insert into contest_tb values('{contest.ContestID}','{contest.Reward}','{contest.Deadline}','{contest.Name}','NO')"
+        cur.execute(qr)
+        con.commit()
+    return
+
+
+def extendDead(contestID, deadline):
+    with sqlite3.connect("test.db") as con:
+        cur = con.cursor()
+        qr = f"UPDATE contest_tb SET deadline = '{deadline}' WHERE contest_id = '{contestID}'"
+        cur.execute(qr)
+        con.commit()
+    return
+
+
+def remContest(contestID):
+    with sqlite3.connect("test.db") as con:
+        cur = con.cursor()
+        qr = f"DELETE from contest_tb WHERE contest_id ={contestID}"
+        cur.execute(qr)
+        qr = f"DELETE from token_tb WHERE contest_id={contestID}"
+        cur.execute(qr)
+        con.commit()
+    return
+
+def insertWinner(winner, cid):
+    with sqlite3.connect("test.db") as con:
+        cur = con.cursor()
+        qr = f"insert into winners_tb values('{cid}','{winner[1]}',1)"
+        cur.execute(qr)
+        con.commit()
+    return
+
+
+def predictWinner():
+    with sqlite3.connect("test.db") as con:
+        cur = con.cursor()
+        qr = f"select contest_id from contest_tb where expired='NO' and deadline='{date.today()}' "
+        cur.execute(qr)
+        con.commit()
+        contests = []
+        rows = cur.fetchall()
+        for row in rows:
+            contests.append(row[0])
+            qr = f"update contest_tb set expired='YES' where contest_id='{row[0]}'"
+            cur.execute(qr)
+            con.commit()
+        winners = dict()
+        for cid in contests:
+            qr = f"select token_number, userID from token_tb where contest_id='{cid}'"
+            cur.execute(qr)
+            con.commit()
+            participants = cur.fetchall()
+            winner = random.choice(participants)
+            insertWinner(winner,cid)
+            winners[cid] = winner[1]
+        
     return winners
