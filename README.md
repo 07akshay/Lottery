@@ -95,8 +95,8 @@ The project has been built using the following :
     Status: 200 OK
     Content-Type: application/json
     Body: {
-           contest_name1 : winner_user1,
-           contest_name2 : winner_user2,
+           [contest_id1, winner_user_id1],
+           [contest_id2, winner_user_id2],
            ....
           }
     ```
@@ -111,8 +111,8 @@ The project has been built using the following :
     Status: 200 OK
     Content-Type: application/json
     Body: {
-           contest_name1 : [reward1, schedule1],
-           contest_name2 : [reward2, schedule2]
+           [contest_id1, reward1, schedule1, contest_name1],
+           [contest_id2, reward2, schedule2, contest_name2],
            ....
           }
     ```
