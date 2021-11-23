@@ -2,6 +2,7 @@ import sqlite3
 import random
 from datetime import date
 
+# to check if a particular user has already participated in the contest or not
 def checkUser(userID, contest_id):
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
@@ -14,21 +15,7 @@ def checkUser(userID, contest_id):
         else:
             return True
 
-
-def tokenAvailable(token):
-    with sqlite3.connect("test.db") as con:  
-        cur = con.cursor()
-        qr = f"select * from token_tb where token_number='{token.Number}'"
-        cur.execute(qr)
-        con.commit()
-        rows = cur.fetchall()
-        print(rows)
-        if len(rows)!=0:
-            return False
-        else:
-            return True
-
-        
+# to insert token to token_tb       
 def insertToDB(token):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -38,6 +25,7 @@ def insertToDB(token):
     return
 
 
+# to get the list of upcoming contests
 def getContests():
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -51,6 +39,7 @@ def getContests():
         return contests
 
 
+# to get the winners of past contests
 def getWin():
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
@@ -64,6 +53,7 @@ def getWin():
     return winners
 
 
+# to add new contests in the contest_tb
 def addCon(contest):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -73,6 +63,7 @@ def addCon(contest):
     return
 
 
+# to extend deadline of a contest
 def extendDead(contestID, deadline):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -82,6 +73,7 @@ def extendDead(contestID, deadline):
     return
 
 
+# to remove a contest
 def remContest(contestID):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -92,6 +84,8 @@ def remContest(contestID):
         con.commit()
     return
 
+
+# to insert the credentials of a winner in the winner_tb
 def insertWinner(winner, cid):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
@@ -101,6 +95,7 @@ def insertWinner(winner, cid):
     return
 
 
+# to find the winner of the contest that has reached its deadline
 def predictWinner():
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
