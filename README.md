@@ -175,3 +175,7 @@ in the database, namely:
 **The figure demonstrates the database schema of the service**
 
 ![Alt text](db.png?raw=true "database")
+
+
+Please Note: I did not know a lot about frontend and thus the frontend of the project might not be upto the mark.
+But I assure you that I like learning about new stuff and would be working on the frontend aspect soon.
