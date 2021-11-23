@@ -38,7 +38,7 @@ of past contests.
 The project has been built using the following :
 
 - [Python](https://www.python.org/) - an interpreted high-level general-purpose programming language
-- [SQLite3]() - A lightweight replica of MySQL database 
+- [SQLite3](https://docs.python.org/3/library/sqlite3.html) - A lightweight replica of MySQL database 
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) - To develop the web framework
 
 ## API Documentation
@@ -152,4 +152,4 @@ in the database, namely:
 
 **The figure demonstrates the database schema of the service**
 
-![Alt text](database.png?raw=true "database")
+![Alt text](db.png?raw=true "database")
