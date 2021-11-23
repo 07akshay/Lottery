@@ -45,7 +45,7 @@ def getWin():
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
         d = datetime.timedelta(days = 8)
-        qr = f"select * from winners_tb where deadline>='{date.today()-d}'"
+        qr = f"select contest_id, user_id from winners_tb where deadline>='{date.today()-d}'"
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
