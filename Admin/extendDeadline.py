@@ -9,13 +9,12 @@ app = Flask(__name__)
 def extendDeadline():
     if request.method == 'POST':
         details = request.form
-        name = details['contest_name']  # contest name
+        contestID = details['contest_id']  # contest ID
         deadline = details['deadline']  # contest deadline
-
-        extendDead(name,deadline)
+        extendDead(contestID,deadline)
         return "success"
             
-    return render_template("addContest.html")
+    return render_template("extendDeadline.html")
 
 if __name__=='__main__':
     app.run(host='127.0.0.1',port = '5050')
