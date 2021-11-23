@@ -37,9 +37,9 @@ of past contests.
 
 The project has been built using the following :
 
-- [Python]() - an interpreted high-level general-purpose programming language
+- [Python](https://www.python.org/) - an interpreted high-level general-purpose programming language
 - [SQLite3]() - A lightweight replica of MySQL database 
-- [Flask]() - To develop the web framework
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) - To develop the web framework
 
 ## API Documentation
 - ### To get a token to participate in a contest
