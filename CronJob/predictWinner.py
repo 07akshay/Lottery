@@ -10,7 +10,6 @@ def predWinner():
     if request.method == 'GET':
         winner = predictWinner()
         return winner
-    return render_template("new.html")
 
 if __name__=='__main__':
     app.run(host='127.0.0.1',port = '5055')
