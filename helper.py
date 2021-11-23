@@ -1,5 +1,6 @@
 import sqlite3
 import random
+import datetime
 from datetime import date
 
 # to check if a particular user has already participated in the contest or not
@@ -43,7 +44,8 @@ def getContests():
 def getWin():
     with sqlite3.connect("test.db") as con:  
         cur = con.cursor()
-        qr = "select * from winners_tb"
+        d = datetime.timedelta(days = 8)
+        qr = f"select * from winners_tb where deadline>='{date.today()-d}'"
         cur.execute(qr)
         con.commit()
         rows = cur.fetchall()
@@ -89,7 +91,7 @@ def remContest(contestID):
 def insertWinner(winner, cid):
     with sqlite3.connect("test.db") as con:
         cur = con.cursor()
-        qr = f"insert into winners_tb values('{cid}','{winner[1]}',1)"
+        qr = f"insert into winners_tb values('{cid}','{winner[1]}',1,'{date.today()}')"
         cur.execute(qr)
         con.commit()
     return
