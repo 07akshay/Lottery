@@ -16,11 +16,11 @@ pip3 install Flask
 ```
 
 Then you would need to create a copy of this repo on your local machine. 
-To use any apiyou would need to run the pyhton script.
+To use any api you would need to run the corresponding python script.
 For example, if you want to run the allottToken API, then you need to run
 the allottToken.py file.
 
-Then you would need to go to this url - http://127.0.0.1:5055/allottToken/
+Then you would need to open this url - http://127.0.0.1:5055/allottToken/
 > Note - the resource would change with the API you want to run
 
 As soon as you open that web page in browser, you can see a simplistic interface
@@ -29,6 +29,7 @@ of a form that requires you to fill some details to allott you a token.
 Refer to this image:
 ![Alt text](example.png?raw=true "allottToken")
 
+Similarly you can run any of the other APIs as well.
 
 ## Design
 
