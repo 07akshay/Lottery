@@ -73,7 +73,7 @@ The project has been built using the following :
     #### Parameters
     ```sh
     userID
-    contest_Name
+    contestID
     ```
     #### Response
     ```
@@ -123,9 +123,10 @@ The project has been built using the following :
     `POST /addContest/`
     #### Parameters
     ```sh
-    contest_Name
+    contestID
     Reward
     Deadline
+    ContestName
     ```
     #### Response
     ```
@@ -139,7 +140,7 @@ The project has been built using the following :
     `POST /extendDeadline/`
     #### Parameters
     ```sh
-    contest_Name
+    contestID
     Deadline
     ```
     #### Response
@@ -154,7 +155,7 @@ The project has been built using the following :
     `POST /removeContest/`
     #### Parameters
     ```sh
-    contest_Name
+    contestID
     Deadline
     ```
     #### Response
