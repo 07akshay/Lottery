@@ -86,7 +86,8 @@ The project has been built using the following :
     ```
 
 - ### To get the list of past contest winners
-    This API returns the list of past winners along with the corresponding contests and their dates
+    This API returns the list of winners of contests in the last 1 week along with the corresponding
+    contests and their dates
     #### Request
     `GET /pastWinners/`
     #### Response
