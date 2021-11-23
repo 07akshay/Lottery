@@ -9,6 +9,27 @@ users to participate in a Lucky draw and win exciting prizes.
 - User can request the list of previous winners
 - Also, the list of various contests and their rewards can be fetched.
 
+## How to use this project
+First you would need to install flask by running the following commands:
+```
+pip3 install Flask
+```
+
+Then you would need to create a copy of this repo on your local machine. 
+To use any apiyou would need to run the pyhton script.
+For example, if you want to run the allottToken API, then you need to run
+the allottToken.py file.
+
+Then you would need to go to this url - http://127.0.0.1:5055/allottToken/
+> Note - the resource would change with the API you want to run
+
+As soon as you open that web page in browser, you can see a simplistic interface
+of a form that requires you to fill some details to allott you a token.
+
+Refer to this image:
+![Alt text](example.png?raw=true "allottToken")
+
+
 ## Design
 
 > The project has been built using **User centric** and **Admin centric APIs**
